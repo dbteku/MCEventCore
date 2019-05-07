@@ -1,0 +1,5 @@
+name: McEventCore
+version: 0.1.0
+description: Event messaging core.
+main: com.dbteku.mc.event.core.main.McEventCorePlugin
+api-version: 1.13

@@ -1,0 +1,40 @@
+apply plugin: 'java'
+repositories {
+   	flatDir {
+       dirs 'Libraries'
+   	}
+    jcenter()
+   	maven { url 'https://jitpack.io' }
+}
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+dependencies {
+    compile 'com.github.dbteku:JavaEvents:0.2.8'
+    provided name: 'spigot-1.13.2'
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.provided).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    } {
+
+    }
+}
+
+jar {
+   baseName = 'MCEventCore'
+   from('src/main/java') {
+      include '**'
+   }
+}
