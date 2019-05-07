@@ -12,7 +12,7 @@ public class McEventCorePlugin extends JavaPlugin{
 	
 	@Override
 	public void onDisable(){
-		System.out.println("MCEventCore disabled.");
+		getServer().getConsoleSender().sendMessage("McEventCore disabled.");
 	}
 	
 	@Override
