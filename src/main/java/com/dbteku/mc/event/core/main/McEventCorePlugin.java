@@ -12,13 +12,11 @@ public class McEventCorePlugin extends JavaPlugin{
 	
 	@Override
 	public void onDisable(){
-		getServer().getConsoleSender().sendMessage("McEventCore disabled.");
 	}
 	
 	@Override
 	public void onEnable(){
-		getServer().getConsoleSender().sendMessage("McEventCore Enabled!");
-		// Initialize Event
+		// Initialize Event Manager.
 		getServer().getServicesManager().register(EventManager.class, EventManager.getInstance(), this, ServicePriority.Highest);
 	}
 	
